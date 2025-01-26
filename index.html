@@ -16,9 +16,9 @@
             line-height: 1.6;
         }
         .dashboard {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -27,10 +27,7 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 15px;
             padding: 20px;
-            width: 30%;
-            box-sizing: border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
@@ -41,11 +38,12 @@
             margin-top: 0;
             font-size: 22px;
             color: #007BFF;
+            display: flex;
+            align-items: center;
         }
         .profile-card {
             text-align: center;
-            width: 100%;
-            max-width: 400px;
+            grid-column: 1 / -1; /* تأخذ مساحة كاملة في الصف الأول */
         }
         .profile-card img {
             width: 150px;
@@ -96,8 +94,8 @@
             color: #007BFF;
         }
         @media (max-width: 768px) {
-            .card {
-                width: 100%;
+            .dashboard {
+                grid-template-columns: 1fr;
             }
         }
     </style>
